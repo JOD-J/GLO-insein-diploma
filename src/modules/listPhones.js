@@ -15,7 +15,6 @@ const listPhones = () => {
 			ContactsArrowElem.style.transform = 'rotate(180deg)';
 			phoneNumberTwoAElem.style.opacity = '1';
 			phoneNumberTwoAElem.style.marginTop = '20px';
-			console.log(false)
 		}
 	});
 };
