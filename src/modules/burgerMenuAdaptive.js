@@ -27,6 +27,7 @@ const burgerMenuAdaptive = () => {
 		requestAnimationFrame(go);
 	};
 
+	
 
 	const CloseBurgerMenu = () => {
 		popupMenuElem.style.transform = `translate(0, 0)`;
@@ -73,6 +74,10 @@ const burgerMenuAdaptive = () => {
 			CloseBurgerMenu();
 			openPopupRepairTypes();
 		}
+		if (target.matches('.link-privacy')) {
+            const popupPrivacy = document.querySelector('.popup-privacy');
+            popupPrivacy.classList.add('visible');
+        }
 	});
 };
 
