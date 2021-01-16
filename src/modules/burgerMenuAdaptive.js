@@ -1,30 +1,24 @@
 /* eslint-disable max-len */
-const burgerMenuAdaptive = () => {
-	const menuBurElem = document.querySelector('.menu__icon'),
-		popupMenuElem = document.querySelector('.popup-menu'),
-		closeMenuElem = document.querySelector('.close-menu'),
-		popupMenuNavItem = document.querySelectorAll('.popup-menu-nav__item>a');
 
-		
+const burgerMenuAdaptive = () => {
+	const popupMenuElem = document.querySelector('.popup-menu');
+
 	const animateBurgerMenu = () => {
-		popupMenuElem.style.transform = `translate(0)`;
 		let count = 0;
 		const go = () => {
 			if (window.innerWidth > 576) {
+				count += 15;
 				console.log('window.innerWidth: ', window.innerWidth);
-				count += 1;
-				popupMenuElem.style.transform = `translate(${-count}%)`;
+				popupMenuElem.style.transform = `translateX(${-count}px)`;
 				const animate = requestAnimationFrame(go);
-				if (count === 50) {
+				if (count === 645) {
 					cancelAnimationFrame(animate);
 				}
 			} else {
-				console.log(' else window.innerWidth: ', window.innerWidth);
-				count += 10;
-				popupMenuElem.style.marginTop = `${count}px`;
+				count += 1;
+				popupMenuElem.style.transform = `translateY(${count}%)`;
 				const animate = requestAnimationFrame(go);
-				if (count === 740) {
-					console.log('count: ', count);
+				if (count === 100) {
 					cancelAnimationFrame(animate);
 				}
 			}
@@ -32,11 +26,9 @@ const burgerMenuAdaptive = () => {
 		requestAnimationFrame(go);
 	};
 
-
 	const CloseBurgerMenu = () => {
-		popupMenuElem.style.transform = `translate(0)`;
+		popupMenuElem.style.transform = `translate(0, 0)`;
 	};
-
 
 	const scrollBurgerMenu = elem => {
 		const animationTime = 500,
@@ -54,17 +46,13 @@ const burgerMenuAdaptive = () => {
 		}, animationTime / framesCount);
 	};
 
-
-	menuBurElem.addEventListener('click', () => {
-		animateBurgerMenu();
-	});
-
-
-	popupMenuElem.addEventListener('click', event => {
-		const target = event.target;
+	document.addEventListener('click', event => {
 		event.preventDefault();
-
-		if (target.matches('.close-menu')) {
+		const target = event.target;
+		if (target.matches('.menu__icon')) {
+			animateBurgerMenu();
+		}
+		if (target.closest('.close')) {
 			CloseBurgerMenu();
 		}
 		if (target.closest('.popup-menu-nav__item')) {
