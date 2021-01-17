@@ -23,7 +23,6 @@ const documentAdaptation = () => {
 		if (index >= 0) {
 			const go = () => {
 				countDocument -= 2;
-				console.log('count: ', countDocument);
 				[...elem.children].forEach(item => {
 					item.style.transform = `translateY(${-countDocument}%)`;
 				});

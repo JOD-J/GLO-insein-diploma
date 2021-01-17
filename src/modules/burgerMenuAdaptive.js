@@ -9,7 +9,6 @@ const burgerMenuAdaptive = () => {
 		const go = () => {
 			if (window.innerWidth > 576) {
 				count += 15;
-				console.log('window.innerWidth: ', window.innerWidth);
 				popupMenuElem.style.transform = `translateX(${-count}px)`;
 				const animate = requestAnimationFrame(go);
 				if (count === 645) {

@@ -82,7 +82,6 @@ const sliderReviews = () => {
 	};
 
 	const prevRepairsBase = (elem, index) => {
-		console.log('index: ', index);
 		if (index >= 0) {
 			const go = () => {
 				countRepairsBase -= 5;
