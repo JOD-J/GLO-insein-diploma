@@ -12,7 +12,8 @@ import documentPopup  from './modules/documentPopup';
 import phoneMask  from './modules/phoneMask';
 // 7-task accordion
 import accordion  from './modules/accordion';
-
+// 8-task sliderReviews
+import sliderReviews  from './modules/sliderReviews';
 
 // 2-task The list of phones
 listPhones();
@@ -27,3 +28,5 @@ documentPopup();
 phoneMask();
 // 7-task accordion
 accordion();
+// 8-task sliderReviews
+sliderReviews();

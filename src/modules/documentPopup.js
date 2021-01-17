@@ -1,7 +1,7 @@
 const documentPopup = () => {
 
-	let count = 0;
-	let currentSlide = 0;
+	let countDocumentPopup = 0;
+	let currentSlideDocumentPopup = 0;
 	const popupTransparencyElem = document.querySelector('.popup-transparency');
 	const popupTransparencySlider = document.querySelector('.popup-transparency-slider');
 	const sliderCounterContentTotal = document.querySelectorAll('.slider-counter-content__total');
@@ -13,58 +13,58 @@ const documentPopup = () => {
 
 	const prevSlide = (elem, index) => {
 		if (index >= 0) {
-			sliderСounterСontentСurrent[4].textContent = 1 + currentSlide;
+			sliderСounterСontentСurrent[4].textContent = 1 + currentSlideDocumentPopup;
 
 			const go = () => {
-				count -= 2;
+				countDocumentPopup -= 2;
 				[...elem.children].forEach(item => {
-					item.style.transform = `translateY(${-count}%)`;
+					item.style.transform = `translateY(${-countDocumentPopup}%)`;
 				});
 				const animate = requestAnimationFrame(go);
-				if (count <= 0) {
+				if (countDocumentPopup <= 0) {
 					cancelAnimationFrame(animate);
 				}
-				if (count === 100) {
+				if (countDocumentPopup === 100) {
 					cancelAnimationFrame(animate);
 				}
 			};
 			requestAnimationFrame(go);
 		} else {
-			currentSlide = 0;
+			currentSlideDocumentPopup = 0;
 		}
 	};
 
 	const nextSlide = (elem, index) => {
 		if (index <= 2) {
-			sliderСounterСontentСurrent[4].textContent = currentSlide + 1;
+			sliderСounterСontentСurrent[4].textContent = currentSlideDocumentPopup + 1;
 			const go = () => {
-				count += 2;
+				countDocumentPopup += 2;
 				[...elem.children].forEach(item => {
-					item.style.transform = `translateY(${-count}%)`;
+					item.style.transform = `translateY(${-countDocumentPopup}%)`;
 				});
 				const animate = requestAnimationFrame(go);
-				if (count === 100) {
+				if (countDocumentPopup === 100) {
 					cancelAnimationFrame(animate);
 				}
-				if (count === 200) {
+				if (countDocumentPopup === 200) {
 					cancelAnimationFrame(animate);
 				}
 			};
 			requestAnimationFrame(go);
 		} else {
-			currentSlide--;
+			currentSlideDocumentPopup--;
 		}
 	};
 
 	popupTransparencyElem.addEventListener('click', event => {
 		const target = event.target;
 		if (target.closest('#transparency_left')) {
-			currentSlide--;
-			prevSlide(popupTransparencySlider, currentSlide);
+			currentSlideDocumentPopup--;
+			prevSlide(popupTransparencySlider, currentSlideDocumentPopup);
 		}
 		if (target.closest('#transparency_right')) {
-			currentSlide++;
-			nextSlide(popupTransparencySlider, currentSlide);
+			currentSlideDocumentPopup++;
+			nextSlide(popupTransparencySlider, currentSlideDocumentPopup);
 		}
 	});
 
