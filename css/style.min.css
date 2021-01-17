@@ -4,3 +4,81 @@
 .visible {
 	visibility: visible;
 }
+
+
+  @media (max-width: 575px) {
+    .repair-types-nav{
+      width: 190px;
+    }
+  }
+  @media (max-width: 768px) {
+    .repair-types-nav{
+        width: 190px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .repair-types-nav{
+      width: 190px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .repair-types-nav__item:first-child {
+      width: 186px;
+      margin-top: 0; }
+      .repair-types-nav__item:first-child svg {
+        width: 186px; } }
+  @media (max-width: 575px) {
+    .repair-types-nav__item:first-child {
+      width: 186px;
+      margin-top: 0; }
+      .repair-types-nav__item:first-child svg {
+        width: 186px; } }
+.repair-types-nav__item:nth-child(2) {
+  width: 300px; }
+  @media (max-width: 1024px) {
+    .repair-types-nav__item:nth-child(2) {
+      width: 215px; }
+      .repair-types-nav__item:nth-child(2) svg {
+        width: 215px; } }
+  @media (max-width: 575px) {
+    .repair-types-nav__item:nth-child(2) {
+      width: 215px; }
+      .repair-types-nav__item:nth-child(2) svg {
+        width: 215px; } }
+.repair-types-nav__item:nth-child(3) {
+  width: 281px; }
+  @media (max-width: 1024px) {
+    .repair-types-nav__item:nth-child(3) {
+      width: 225px; }
+      .repair-types-nav__item:nth-child(3) svg {
+        width: 225px; } }
+  @media (max-width: 575px) {
+    .repair-types-nav__item:nth-child(3) {
+      width: 215px; }
+      .repair-types-nav__item:nth-child(3) svg {
+        width: 215px; } }
+.repair-types-nav__item:nth-child(4) {
+  width: 268px; }
+  @media (max-width: 1024px) {
+    .repair-types-nav__item:nth-child(4) {
+      width: 245px; }
+      .repair-types-nav__item:nth-child(4) svg {
+        width: 245px; } }
+  @media (max-width: 575px) {
+    .repair-types-nav__item:nth-child(4) {
+      width: 215px; }
+      .repair-types-nav__item:nth-child(4) svg {
+        width: 215px; } }
+.repair-types-nav__item:nth-child(5) {
+  width: 322px; }
+  @media (max-width: 1024px) {
+    .repair-types-nav__item:nth-child(5) {
+      width: 245px; }
+      .repair-types-nav__item:nth-child(5) svg {
+        width: 245px; } }
+  @media (max-width: 575px) {
+    .repair-types-nav__item:nth-child(5) {
+      width: 220px; }
+      .repair-types-nav__item:nth-child(5) svg {
+        width: 220px; } }

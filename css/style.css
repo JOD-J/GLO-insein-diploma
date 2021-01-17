@@ -1187,23 +1187,23 @@ template, [hidden] {
       margin-top: 0; }
       @media (max-width: 1024px) {
         .repair-types-nav__item:first-child {
-          width: 205px;
+          width: 186px;
           margin-top: 0; }
           .repair-types-nav__item:first-child svg {
-            width: 205px; } }
+            width: 186px; } }
       @media (max-width: 575px) {
         .repair-types-nav__item:first-child {
           width: 186px;
           margin-top: 0; }
           .repair-types-nav__item:first-child svg {
-            width: 205px; } }
+            width: 186px; } }
     .repair-types-nav__item:nth-child(2) {
       width: 300px; }
       @media (max-width: 1024px) {
         .repair-types-nav__item:nth-child(2) {
-          width: 240px; }
+          width: 215px; }
           .repair-types-nav__item:nth-child(2) svg {
-            width: 240px; } }
+            width: 215px; } }
       @media (max-width: 575px) {
         .repair-types-nav__item:nth-child(2) {
           width: 215px; }
@@ -1213,38 +1213,38 @@ template, [hidden] {
       width: 281px; }
       @media (max-width: 1024px) {
         .repair-types-nav__item:nth-child(3) {
-          width: 220px; }
+          width: 225px; }
           .repair-types-nav__item:nth-child(3) svg {
-            width: 220px; } }
+            width: 225px; } }
       @media (max-width: 575px) {
         .repair-types-nav__item:nth-child(3) {
-          width: 200px; }
+          width: 215px; }
           .repair-types-nav__item:nth-child(3) svg {
-            width: 200px; } }
+            width: 215px; } }
     .repair-types-nav__item:nth-child(4) {
       width: 268px; }
       @media (max-width: 1024px) {
         .repair-types-nav__item:nth-child(4) {
-          width: 212px; }
+          width: 245px; }
           .repair-types-nav__item:nth-child(4) svg {
-            width: 212px; } }
+            width: 245px; } }
       @media (max-width: 575px) {
         .repair-types-nav__item:nth-child(4) {
-          width: 190px; }
+          width: 215px; }
           .repair-types-nav__item:nth-child(4) svg {
-            width: 190px; } }
+            width: 215px; } }
     .repair-types-nav__item:nth-child(5) {
       width: 322px; }
       @media (max-width: 1024px) {
         .repair-types-nav__item:nth-child(5) {
-          width: 266px; }
+          width: 245px; }
           .repair-types-nav__item:nth-child(5) svg {
-            width: 266px; } }
+            width: 245px; } }
       @media (max-width: 575px) {
         .repair-types-nav__item:nth-child(5) {
-          width: 223px; }
+          width: 220px; }
           .repair-types-nav__item:nth-child(5) svg {
-            width: 223px; } }
+            width: 220px; } }
 
 .feedback-block {
   position: relative;
@@ -3674,7 +3674,7 @@ div.wave-block:nth-child(17):after {
       background-size: cover;
       -webkit-transition: 1s;
       transition: 1s;
-     }
+    }
       @media (max-width: 1024px) {
         .popup-dialog-menu {
           width: 549px;
@@ -6482,3 +6482,21 @@ strong {
 
 .slider-dots {
   display: none; }
+
+
+
+  @media (max-width: 575px) {
+    .repair-types-nav{
+      width: 190px;
+    }
+  }
+  @media (max-width: 768px) {
+    .repair-types-nav{
+        width: 190px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .repair-types-nav{
+      width: 190px;
+    }
+  }
