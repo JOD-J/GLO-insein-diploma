@@ -10,6 +10,9 @@ import documentAdaptation  from './modules/documentAdaptation';
 import documentPopup  from './modules/documentPopup';
 // 6-task phoneMask
 import phoneMask  from './modules/phoneMask';
+// 7-task accordion
+import accordion  from './modules/accordion';
+
 
 // 2-task The list of phones
 listPhones();
@@ -22,3 +25,5 @@ documentAdaptation();
 documentPopup();
 // 6-task phoneMask
 phoneMask();
+// 7-task accordion
+accordion();
