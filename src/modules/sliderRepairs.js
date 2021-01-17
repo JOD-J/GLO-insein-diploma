@@ -12,12 +12,6 @@ const sliderReviews = () => {
 	const typesRepair5 = document.querySelector('.types-repair5');
 	const repairTypesNavItem = document.querySelectorAll('.repair-types-nav__item');
 
-	// repairTypesNavItem.forEach(item => {
-	// 	console.log('item: ', item);
-	// 	// item.style.margin = '0 35px 0 35px';
-
-	// });
-	// navListRepairElem.style.minWidth = '1px';
 	sliderCounterContentTotal.textContent = '5';
 	let countRepairs = 0;
 	let countRepairsBase = 0;
@@ -119,8 +113,6 @@ const sliderReviews = () => {
 	};
 
 	const nextRepairsBase = (elem, index, countLenght) => {
-		console.log('index: ', index);
-		console.log('elem: ', elem);
 		if (index <= countLenght - 1) {
 			const go = () => {
 				countRepairsBase += 5;
