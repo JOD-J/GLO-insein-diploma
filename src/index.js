@@ -6,6 +6,8 @@ import listPhones  from './modules/listPhones';
 import burgerMenuAdaptive  from './modules/burgerMenuAdaptive';
 // 5-task Documentation
 import documentAdaptation  from './modules/documentAdaptation';
+// 5-task documentPopup
+import documentPopup  from './modules/documentPopup';
 
 
 // 2-task The list of phones
@@ -15,4 +17,5 @@ burgerMenuAdaptive();
 
 // 5-task Documentation
 documentAdaptation();
-
+// 5-task documentPopup
+documentPopup();
