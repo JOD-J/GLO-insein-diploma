@@ -9,7 +9,6 @@ const sliderReviews = () => {
 		if (index >= 0) {
 			const go = () => {
 				countReviews -= 5;
-				console.log('countreviews: ', countReviews);
 				[...elem.children].forEach(item => {
 					item.style.transform = `translateY(${-countReviews}%)`;
 				});
@@ -40,7 +39,6 @@ const sliderReviews = () => {
 		if (index <= 4) {
 			const go = () => {
 				countReviews += 5;
-				console.log('countreviews: ', countReviews);
 				[...elem.children].forEach(item => {
 					item.style.transform = `translateY(${-countReviews}%)`;
 				});
