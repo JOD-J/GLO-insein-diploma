@@ -14,12 +14,14 @@ import phoneMask  from './modules/phoneMask';
 import accordion  from './modules/accordion';
 // 8-task sliderReviews
 import sliderReviews  from './modules/sliderReviews';
+// 8-task sliderRepairs
+import sliderRepairs  from './modules/sliderRepairs';
+
 
 // 2-task The list of phones
 listPhones();
 // 3-4-task burger menu
 burgerMenuAdaptive();
-
 // 5-task Documentation
 documentAdaptation();
 // 5-task documentPopup
@@ -30,3 +32,5 @@ phoneMask();
 accordion();
 // 8-task sliderReviews
 sliderReviews();
+// 8-task sliderRepairs
+sliderRepairs();
