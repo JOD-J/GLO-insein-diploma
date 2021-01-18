@@ -99,7 +99,14 @@ const sliderReviews = () => {
 	};
 
 	const nextRepairs = (elem, index, countLenght) => {
-		if (index <= countLenght) {
+		let countIndex = 0;
+		if (elem.classList.contains('nav-list-repair')) {
+			countIndex = index;
+		}
+		if (elem.classList.contains('types-repair-item')) {
+			countIndex = index;
+		}
+		if (countIndex <= countLenght) {
 			const go = () => {
 				sliderCounterContentCurrent.textContent = 1 + currentSlideRepairs;
 				if (elem.classList.contains('nav-list-repair')) {
@@ -152,8 +159,12 @@ const sliderReviews = () => {
 			};
 			requestAnimationFrame(go);
 		} else {
-			currentSlideRepairs--;
-			currentSlideRepairsBase--;
+			if (elem.classList.contains('nav-list-repair')) {
+				currentSlideRepairsBase--;
+			}
+			if (elem.classList.contains('types-repair-item')) {
+				currentSlideRepairs--;
+			}
 		}
 	};
 
@@ -194,10 +205,14 @@ const sliderReviews = () => {
 		if (target.closest('#nav-arrow-repair-left_base')) {
 			currentSlideRepairsBase--;
 			prevRepairs(navListRepair, currentSlideRepairsBase);
+			celarStyle();
+			getConutValue();
 		}
 		if (target.closest('#nav-arrow-repair-right_base')) {
 			currentSlideRepairsBase++;
 			nextRepairs(navListRepair, currentSlideRepairsBase, 4);
+			celarStyle();
+			getConutValue();
 		}
 	});
 	addActiveClass(typesRepairItem, 0, 'types-repair-item--active');

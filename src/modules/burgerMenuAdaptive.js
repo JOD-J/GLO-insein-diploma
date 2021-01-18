@@ -55,7 +55,6 @@ const burgerMenuAdaptive = () => {
 			openPopupRepairTypes();
 		}
 		if (target.closest('.link-list-repair')) {
-			toggleMenu();
 			openPopupRepairTypes();
 		}
 		if (target.matches('.link-privacy')) {
