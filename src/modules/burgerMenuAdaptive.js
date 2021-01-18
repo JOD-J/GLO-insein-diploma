@@ -1,42 +1,13 @@
 /* eslint-disable max-len */
 
+
+// popup-dialog-menu
+
 const burgerMenuAdaptive = () => {
 	const popupMenuElem = document.querySelector('.popup-menu');
 	const popupRepairTypes = document.querySelector('.popup-repair-types');
+	const popupDialogMenu = document.querySelector('.popup-dialog-menu');
 
-	const animateBurgerMenu = () => {
-		let count = 0;
-		const go = () => {
-			if (window.innerWidth > 576) {
-				count += 15;
-				popupMenuElem.style.transform = `translateX(${-count}px)`;
-				const animate = requestAnimationFrame(go);
-				if (count === 645) {
-					cancelAnimationFrame(animate);
-				}
-			} else {
-				count += 1;
-				popupMenuElem.style.transform = `translateY(${count}%)`;
-				const animate = requestAnimationFrame(go);
-				if (count === 100) {
-					cancelAnimationFrame(animate);
-				}
-			}
-		};
-		requestAnimationFrame(go);
-	};
-
-	
-
-	const CloseBurgerMenu = () => {
-		popupMenuElem.style.transform = `translate(0, 0)`;
-	};
-
-	const scrollBurgerMenu = elem => {
-		const scrollHeight = document.getElementById(elem.href.split('#')[1]).offsetTop;
-		CloseBurgerMenu();
-		window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
-	};
 
 	const closeAllPopup = () => {
 		const popup = document.querySelectorAll('.popup');
@@ -44,6 +15,19 @@ const burgerMenuAdaptive = () => {
 			item.classList.remove('visible');
 		});
 	};
+
+	const toggleMenu = () => {
+		closeAllPopup();
+		popupDialogMenu.classList.toggle('open-menu');
+	};
+
+
+	const scrollBurgerMenu = elem => {
+		const scrollHeight = document.getElementById(elem.href.split('#')[1]).offsetTop;
+		toggleMenu();
+		window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
+	};
+
 
 	const openPopupRepairTypes = () => {
 		popupRepairTypes.classList.add('visible');
@@ -53,11 +37,12 @@ const burgerMenuAdaptive = () => {
 		event.preventDefault();
 		const target = event.target;
 		if (target.matches('.menu__icon')) {
-			animateBurgerMenu();
+			popupMenuElem.classList.add('visible');
+			toggleMenu();
 		}
 		if (target.closest('.close')) {
 			closeAllPopup();
-			CloseBurgerMenu();
+			toggleMenu();
 		}
 		if (target.closest('.popup-menu-nav__item')) {
 			scrollBurgerMenu(target);
@@ -66,11 +51,11 @@ const burgerMenuAdaptive = () => {
 			scrollBurgerMenu(target);
 		}
 		if (target.closest('.link-list-menu')) {
-			CloseBurgerMenu();
+			toggleMenu();
 			openPopupRepairTypes();
 		}
 		if (target.closest('.link-list-repair')) {
-			CloseBurgerMenu();
+			toggleMenu();
 			openPopupRepairTypes();
 		}
 		if (target.matches('.link-privacy')) {
