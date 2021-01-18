@@ -13,6 +13,8 @@ const tabsWork = () => {
 			}
 		});
 	};
+	addActiveClass(schemeSliderSlide, 0, 'scheme-slider__slide--active');
+
 	let countTabs = 0;
 	let countSlideTabs = 0;
 
@@ -101,7 +103,6 @@ const tabsWork = () => {
 			nextTabs(wrapper, countSlideTabs);
 		}
 	});
-	addActiveClass(schemeSliderSlide, 0, 'scheme-slider__slide--active');
 
 };
 export default tabsWork;

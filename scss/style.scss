@@ -9636,9 +9636,29 @@ strong {
   display: block;
 }
 
+.partners-slider-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.partners-slider{
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  width: 450px;
+}
+
+.partners-slider__slide{
+  // display: none;
+  margin: 0 80px;
+}
+
+// .partners-slider__slide--active{
+//   display: flex;
+// }
+
 .scheme-list-nav {
   // display: flex;
-
 }
 
 // #scheme-list{

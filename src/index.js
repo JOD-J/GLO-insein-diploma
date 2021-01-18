@@ -16,9 +16,12 @@ import accordion  from './modules/accordion';
 import sliderReviews  from './modules/sliderReviews';
 // 8-task sliderRepairs
 import sliderRepairs  from './modules/sliderRepairs';
-
 // 8-task sliderRepairs
 import tabsWork  from './modules/tabsWork';
+// 8-task sliderCarouselPartners
+import sliderCarouselPartners  from './modules/sliderCarouselPartners';
+
+
 
 // 2-task The list of phones
 listPhones();
@@ -38,3 +41,5 @@ sliderReviews();
 sliderRepairs();
 // 8-task sliderRepairs
 tabsWork();
+// 8-task sliderCarouselPartners
+sliderCarouselPartners();
