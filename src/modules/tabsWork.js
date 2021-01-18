@@ -1,5 +1,6 @@
 
 const tabsWork = () => {
+	const scheme = document.querySelector('#scheme');
 	const wrapper = document.querySelector('#scheme-list');
 	const schemeSliderSlide = document.querySelectorAll('.scheme-slider__slide');
 	const schemeDescriptionBlock = document.querySelectorAll('.scheme-description-block');
@@ -12,8 +13,74 @@ const tabsWork = () => {
 			}
 		});
 	};
+	let countTabs = 0;
+	let countSlideTabs = 0;
 
-	wrapper.addEventListener('click', e => {
+
+	const prevTabs = (elem, index) => {
+		if (index >= 0) {
+			const go = () => {
+				countTabs -= 5;
+				elem.style.transform = `translateX(${-countTabs}%)`;
+				const animate = requestAnimationFrame(go);
+				if (countTabs === 0) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 10) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 25) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 40) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 65) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 80) {
+					cancelAnimationFrame(animate);
+				}
+			};
+			requestAnimationFrame(go);
+		} else {
+			countSlideTabs = 0;
+		}
+	};
+
+	const nextTabs = (elem, index) => {
+		let countSlidesTabs = 5;
+		if (innerWidth > 576) {
+			countSlidesTabs = 3;
+		}
+		if (index <= countSlidesTabs) {
+			const go = () => {
+				countTabs += 5;
+				elem.style.transform = `translateX(${-countTabs}%)`;
+				const animate = requestAnimationFrame(go);
+				if (countTabs === 10) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 25) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 40) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 65) {
+					cancelAnimationFrame(animate);
+				}
+				if (countTabs === 80) {
+					cancelAnimationFrame(animate);
+				}
+			};
+			requestAnimationFrame(go);
+		} else {
+			countSlideTabs--;
+		}
+	};
+
+	scheme.addEventListener('click', e => {
 		const target = e.target;
 		if (target.tagName === 'BUTTON') {
 			[...wrapper.children].forEach((item, i) => {
@@ -25,50 +92,17 @@ const tabsWork = () => {
 				}
 			});
 		}
+		if (target.closest('#nav-arrow-scheme_left')) {
+			countSlideTabs--;
+			prevTabs(wrapper, countSlideTabs);
+		}
+		if (target.closest('#nav-arrow-scheme_right')) {
+			countSlideTabs++;
+			nextTabs(wrapper, countSlideTabs);
+		}
 	});
 	addActiveClass(schemeSliderSlide, 0, 'scheme-slider__slide--active');
 
-
-	// class Slider {
-	// 	constructor({
-	// 		num,
-	// 	}) {
-	// 		this.num = num;
-	// 	}
-	// 	addEvents() {
-	// 	}
-	// 	addClasses() {
-	// 	}
-	// 	removeClasses() {
-	// 	}
-	// 	removeEvents() {
-	// 	}
-	// 	init() {
-	// 		console.log(this.num);
-	// 	}
-	// 	destroy() {
-	// 		console.log(this.num * 2);
-	// 	}
-	// }
-
-	// const test = new Slider({
-	// 	num: 4,
-	// 	hren: 546584
-
-	// });
-
-	// const doTest = () => {
-	// 	if (innerWidth < 900) {
-	// 		test.init();
-	// 	} else {
-	// 		test.destroy();
-	// 	}
-	// };
-
-	// doTest();
-
-	// window.addEventListener('resize', doTest);
-
-
 };
 export default tabsWork;
+
