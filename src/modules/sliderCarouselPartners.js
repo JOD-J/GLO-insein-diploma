@@ -7,17 +7,6 @@ const sliderCarouselPartners = () => {
 	let countCarousel = 0;
 	let countSlideCarousel = 0;
 
-	// const showPartnersSlider = (arr, index, activeClass) => {
-	// 	arr.forEach((item, ind) => {
-	// 		item.classList.remove(activeClass);
-	// 		if (ind === index) {
-	// 			item.classList.add(activeClass);
-	// 		}
-	// 	});
-	// };
-	// showPartnersSlider(partnersSliderSlide, 0, 'partners-slider__slide--active');
-	// // showPartnersSlider(partnersSliderSlide, 1, 'partners-slider__slide--active');
-
 	if (innerWidth <= 1024) {
 		partnersSlider.style.width = '290px';
 	}
@@ -64,7 +53,7 @@ const sliderCarouselPartners = () => {
 						cancelAnimationFrame(animate);
 					}
 				}
-				if (innerWidth >= 1024) {
+				if (innerWidth > 1024) {
 					if (countCarousel === 0) {
 						cancelAnimationFrame(animate);
 					}
@@ -84,7 +73,30 @@ const sliderCarouselPartners = () => {
 			};
 			requestAnimationFrame(go);
 		} else {
-			countSlideCarousel = 0;
+			const go = () => {
+				countCarousel += 10;
+				[...elem.children].forEach(item => {
+					item.style.transform = `translateX(${-countCarousel}%)`;
+				});
+				const animate = requestAnimationFrame(go);
+				if (innerWidth <= 576) {
+					if (countCarousel === 880) {
+						cancelAnimationFrame(animate);
+					}
+				}
+				if (innerWidth > 1024) {
+					if (countCarousel === 700) {
+						cancelAnimationFrame(animate);
+					}
+				}
+				if (innerWidth <= 1024 && innerWidth >= 576) {
+					if (countCarousel === 950) {
+						cancelAnimationFrame(animate);
+					}
+				}
+			};
+			requestAnimationFrame(go);
+			countSlideCarousel = elem.parentElement.children.length + 1;
 		}
 	};
 	const nextCarousel = (elem, index) => {
@@ -123,7 +135,7 @@ const sliderCarouselPartners = () => {
 						cancelAnimationFrame(animate);
 					}
 				}
-				if (innerWidth >= 1024) {
+				if (innerWidth > 1024) {
 					if (countCarousel === 170) {
 						cancelAnimationFrame(animate);
 					}
@@ -140,16 +152,19 @@ const sliderCarouselPartners = () => {
 			};
 			requestAnimationFrame(go);
 		} else {
-			dfsf();
-			[...elem.children].forEach(item => {
-				item.style.transform = `translateX(0%)`;
-			});
-			countSlideCarousel--;
+			const go = () => {
+				countCarousel -= 10;
+				[...elem.children].forEach(item => {
+					item.style.transform = `translateX(${-countCarousel}%)`;
+				});
+				const animate = requestAnimationFrame(go);
+				if (countCarousel === 0) {
+					cancelAnimationFrame(animate);
+				}
+			};
+			requestAnimationFrame(go);
+			countSlideCarousel = 0;
 		}
-	};
-
-	const dfsf = () => {
-
 	};
 
 	partners.addEventListener('click', e => {
@@ -161,7 +176,6 @@ const sliderCarouselPartners = () => {
 		if (target.closest('#partners-arrow_right')) {
 			countSlideCarousel++;
 			nextCarousel(partnersSlider, countSlideCarousel);
-			
 		}
 	});
 };
