@@ -1,5 +1,5 @@
 const blockProblem = () => {
-	const problemsItemIcon = document.querySelectorAll('.problems-item__icon');
+	const problemsItemIcon = document.querySelectorAll('.problems-item__icon--desctop');
 
 	const showPromt = (popup, item) => {
 		const heightToTop = item.getBoundingClientRect().top - 10;
@@ -23,21 +23,22 @@ const blockProblem = () => {
 	};
 
 
-
 	problemsItemIcon.forEach(item => {
 		item.addEventListener('mouseover', e => {
-			const target = e.target.closest('.problems-item__icon');
+			const target = e.target.closest('.problems-item__icon--desctop');
 			if (target) {
 				showPromt(target.children[0], item);
 			}
+			target.parentElement.children[0].children[1].classList.add('active-item');
 		});
 
 		item.addEventListener('mouseout', e => {
-			const target = e.target.closest('.problems-item__icon');
+			const target = e.target.closest('.problems-item__icon--desctop');
 			if (target) {
 				const popup = target.children[0];
 				hidePromt(popup);
 			}
+			target.parentElement.children[0].children[1].classList.remove('active-item');
 		});
 	});
 
@@ -52,7 +53,6 @@ const blockProblem = () => {
 		[...arr.children].forEach((item, i) => {
 			item.classList.remove(activeClass);
 			if (i === ind) {
-				console.log('i: ', i);
 				item.classList.add(activeClass);
 			}
 		});
@@ -68,17 +68,33 @@ const blockProblem = () => {
 					item.style.transform = `translateX(${-countProblem}%)`;
 				});
 				const animate = requestAnimationFrame(go);
-				if (countProblem === 0) {
-					cancelAnimationFrame(animate);
+				if (innerWidth <= 576) {
+					if (countProblem === 0) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 110) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 220) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 330) {
+						cancelAnimationFrame(animate);
+					}
 				}
-				if (countProblem === 110) {
-					cancelAnimationFrame(animate);
-				}
-				if (countProblem === 220) {
-					cancelAnimationFrame(animate);
-				}
-				if (countProblem === 330) {
-					cancelAnimationFrame(animate);
+				if (innerWidth <= 1024 && innerWidth >= 576) {
+					if (countProblem === 0) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 150) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 305) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 460) {
+						cancelAnimationFrame(animate);
+					}
 				}
 			};
 			requestAnimationFrame(go);
@@ -96,14 +112,27 @@ const blockProblem = () => {
 					item.style.transform = `translateX(${-countProblem}%)`;
 				});
 				const animate = requestAnimationFrame(go);
-				if (countProblem === 110) {
-					cancelAnimationFrame(animate);
+				if (innerWidth <= 576) {
+					if (countProblem === 110) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 220) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 330) {
+						cancelAnimationFrame(animate);
+					}
 				}
-				if (countProblem === 220) {
-					cancelAnimationFrame(animate);
-				}
-				if (countProblem === 330) {
-					cancelAnimationFrame(animate);
+				if (innerWidth <= 1024 && innerWidth >= 576) {
+					if (countProblem === 150) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 305) {
+						cancelAnimationFrame(animate);
+					}
+					if (countProblem === 460) {
+						cancelAnimationFrame(animate);
+					}
 				}
 			};
 			requestAnimationFrame(go);
@@ -112,17 +141,28 @@ const blockProblem = () => {
 		}
 	};
 
-
-
 	problemsSliderWrap.addEventListener('click', e => {
 		const target = e.target;
 		if (target.closest('#problems-arrow_left')) {
 			countSlideProblem--;
 			prevProblem(problemsSlider, countSlideProblem);
+			[...problemsSlider.children].forEach(item => {
+				item.classList.remove('active-item');
+			});
 		}
 		if (target.closest('#problems-arrow_right')) {
 			countSlideProblem++;
 			nextProblem(problemsSlider, countSlideProblem);
+			[...problemsSlider.children].forEach(item => {
+				item.classList.remove('active-item');
+			});
+		}
+		if (target.closest('.problems-slider__slide')) {
+			[...problemsSlider.children].forEach((item, index) => {
+				if (index === countSlideProblem) {
+					item.classList.toggle('active-item');
+				}
+			});
 		}
 	});
 };

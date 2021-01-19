@@ -2,6 +2,8 @@ const blockWelcome = () => {
 	const formulaItemIcon = document.querySelectorAll('.formula-item__icon');
 
 	const showPromt = (popup, item) => {
+		console.log('showPromt');
+
 		const heightToTop = item.getBoundingClientRect().top - 10;
 		popup.closest('.row').style.zIndex = '1000';
 		if (heightToTop < popup.offsetHeight) {
@@ -17,6 +19,8 @@ const blockWelcome = () => {
 	};
 
 	const hidePromt = popup => {
+		console.log('hidePromt');
+
 		popup.style.visibility = 'hidden';
 		popup.style.opacity = '0.1';
 		popup.closest('.row').style.zIndex = '0';
@@ -165,6 +169,7 @@ const blockWelcome = () => {
 			});
 		}
 		if (target.closest('.formula-slider__slide')) {
+			console.log('target: ', target);
 			target.children[0].children[0].classList.toggle('formula-item-popup--active');
 			target.classList.toggle('active-item');
 		}
