@@ -9781,3 +9781,23 @@ strong {
     margin: 0 15px;
   }
 }
+
+
+
+.popup-portfolio{
+  visibility: visible;
+}
+
+.popup-portfolio-text {
+  display: none;
+}
+.popup-portfolio-text--active {
+  display: flex;
+}
+
+.popup-portfolio-slider__slide {
+  display: none;
+}
+.popup-portfolio-slider__slide--active {
+  display: flex;
+}
