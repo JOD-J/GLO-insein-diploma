@@ -20,8 +20,10 @@ import sliderRepairs  from './modules/sliderRepairs';
 import tabsWork  from './modules/tabsWork';
 // 8-task sliderCarouselPartners
 import sliderCarouselPartners  from './modules/sliderCarouselPartners';
-// 8-task sliderCarouselPartners
+// 8-task btnConsultation
 import btnConsultation  from './modules/btnConsultation';
+// 8-task blockWelcome
+import blockWelcome  from './modules/blockWelcome';
 
 
 
@@ -45,5 +47,7 @@ sliderRepairs();
 tabsWork();
 // 8-task sliderCarouselPartners
 sliderCarouselPartners();
-// 8-task sliderCarouselPartners
+// 8-task btnConsultation
 btnConsultation();
+// 8-task blockWelcome
+blockWelcome();
