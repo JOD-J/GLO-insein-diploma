@@ -24,7 +24,8 @@ import sliderCarouselPartners  from './modules/sliderCarouselPartners';
 import btnConsultation  from './modules/btnConsultation';
 // 8-task blockWelcome
 import blockWelcome  from './modules/blockWelcome';
-
+// 8-task blockWelcome
+import blockProblem  from './modules/blockProblem';
 
 
 // 2-task The list of phones
@@ -51,3 +52,6 @@ sliderCarouselPartners();
 btnConsultation();
 // 8-task blockWelcome
 blockWelcome();
+// 8-task blockWelcome
+blockProblem();
+

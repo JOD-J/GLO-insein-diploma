@@ -26,11 +26,13 @@ const blockWelcome = () => {
 		item.addEventListener('mouseover', e => {
 			const target = e.target;
 			showPromt(target.parentElement.children[0], item);
+			target.parentElement.classList.add('active-item');
 		});
 		item.addEventListener('mouseout', e => {
 			const target = e.target;
 			const popup = target.parentElement.children[0];
 			hidePromt(popup);
+			target.parentElement.classList.remove('active-item');
 		});
 	});
 
@@ -149,11 +151,22 @@ const blockWelcome = () => {
 		if (target.closest('#formula-arrow_left')) {
 			countSlideWelcome--;
 			prevWelcome(formulaSlider, countSlideWelcome);
-
+			[...formulaSlider.children].forEach(item => {
+				item.classList.remove('active-item');
+				item.children[0].children[0].classList.remove('formula-item-popup--active');
+			});
 		}
 		if (target.closest('#formula-arrow_right')) {
 			countSlideWelcome++;
 			nextWelcome(formulaSlider, countSlideWelcome);
+			[...formulaSlider.children].forEach(item => {
+				item.classList.remove('active-item');
+				item.children[0].children[0].classList.remove('formula-item-popup--active');
+			});
+		}
+		if (target.closest('.formula-slider__slide')) {
+			target.children[0].children[0].classList.toggle('formula-item-popup--active');
+			target.classList.toggle('active-item');
 		}
 	});
 };
