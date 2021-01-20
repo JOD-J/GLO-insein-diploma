@@ -6,10 +6,12 @@ const sliderPortfolio = () => {
 	const portfolioSliderMobile = document.querySelector('.portfolio-slider-mobile');
 
 	const portfolioSliderSlideFrame = document.querySelectorAll('.portfolio-slider__slide-frame');
-	
+
 	const portfolioArrowLeft = document.querySelector('#portfolio-arrow_left');
 	const portfolioArrowRight = document.querySelector('#portfolio-arrow_right');
 
+
+	// popup
 	const popupPortfolio = document.querySelector('.popup-portfolio');
 	const popupPortfolioSliderWrap = document.querySelector('.popup-portfolio-slider-wrap');
 	const popupPortfolioSlider = document.querySelector('.popup-portfolio-slider');
@@ -21,7 +23,7 @@ const sliderPortfolio = () => {
 	let countPortfolio = 0;
 	let countSliderPortfolio = 0;
 	let countSliderPopupPortfolio = 0;
-
+	
 	sliderCounterContentTotal[1].textContent = '10';
 	sliderCounterContentTotal[3].textContent = '10';
 	sliderCounterContentCurrent[3].textContent = '1';
@@ -84,6 +86,12 @@ const sliderPortfolio = () => {
 		if (target.closest('#portfolio-arrow-mobile_right')) {
 			countSliderPortfolio++;
 			addActiveClassSlider(portfolioSliderMobile, countSliderPortfolio, 'portfolio-slider__slide-frame--active');
+		}
+
+		if (target.closest('.portfolio-slider__slide-frame')) {
+			addActiveClassSlider(popupPortfolioSlider, Number(target.dataset.index), 'popup-portfolio-slider__slide--active');
+			addActiveClassText(popupPortfolioText, Number(target.dataset.index), 'popup-portfolio-text--active');
+			countSliderPopupPortfolio = Number(target.dataset.index);
 		}
 	});
 

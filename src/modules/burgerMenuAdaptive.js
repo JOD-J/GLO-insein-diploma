@@ -42,8 +42,13 @@ const burgerMenuAdaptive = () => {
 		}
 		if (target.closest('.close')) {
 			closeAllPopup();
+			
+		}
+		if (target.closest('.close-menu')) {
+			closeAllPopup();
 			toggleMenu();
 		}
+
 		if (target.closest('.popup-menu-nav__item')) {
 			scrollBurgerMenu(target);
 		}
