@@ -34,7 +34,6 @@ const burgerMenuAdaptive = () => {
 	};
 
 	document.addEventListener('click', event => {
-		event.preventDefault();
 		const target = event.target;
 		if (target.matches('.menu__icon')) {
 			popupMenuElem.classList.add('visible');

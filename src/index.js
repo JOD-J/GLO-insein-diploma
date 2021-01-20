@@ -28,6 +28,8 @@ import blockWelcome  from './modules/blockWelcome';
 import blockProblem  from './modules/blockProblem';
 // 8-task blockWelcome
 import sliderPortfolio  from './modules/sliderPortfolio';
+// 8-task blockWelcome
+import formsSubmit  from './modules/formsSubmit';
 
 
 // 2-task The list of phones
@@ -58,4 +60,6 @@ blockWelcome();
 blockProblem();
 // 8-task blockWelcome
 sliderPortfolio();
+// 8-task blockWelcome
+formsSubmit();
 
