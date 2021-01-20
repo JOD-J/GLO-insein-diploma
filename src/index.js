@@ -30,6 +30,9 @@ import blockProblem  from './modules/blockProblem';
 import sliderPortfolio  from './modules/sliderPortfolio';
 // 8-task blockWelcome
 import formsSubmit  from './modules/formsSubmit';
+// 8-task blockWelcome
+import loadingDate  from './modules/loadingDate';
+
 
 
 // 2-task The list of phones
@@ -62,4 +65,6 @@ blockProblem();
 sliderPortfolio();
 // 8-task blockWelcome
 formsSubmit();
+// 8-task blockWelcome
+loadingDate();
 
