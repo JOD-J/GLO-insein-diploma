@@ -9788,6 +9788,13 @@ strong {
 //   visibility: visible;
 // }
 
+.portfolio-slider-port {
+  display: none;
+}
+.portfolio-slider__slide-frame--active {
+  display: flex;
+}
+
 .popup-portfolio-text {
   display: none;
 }
@@ -9800,4 +9807,42 @@ strong {
 }
 .popup-portfolio-slider__slide--active {
   display: flex;
+}
+
+@media (max-width: 768px) {
+  .portfolio-slider {
+    width: 82%;
+  }
+}
+
+@media (max-width: 768px) {
+  .popup-portfolio-text--active {
+    display: contents;
+  }
+}
+@media (max-width: 1024px) {
+  .popup-portfolio-text--active {
+    display: contents;
+  }
+}
+
+@media (max-width: 576px) {
+  .slider-arrow-tablet-mobile_right {
+    right: -20px;
+    height: 21px;
+    width: 15px;
+    border: 1px solid silver;
+    background: burlywood;
+    // display: flex;
+    // /* justify-items: center; */
+  }
+  .slider-arrow-tablet-mobile_left {
+    left: -20px;
+    height: 21px;
+    width: 15px;
+    border: 1px solid silver;
+    background: burlywood;
+    // display: flex;
+    // /* justify-items: center; */
+}
 }
