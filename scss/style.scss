@@ -6627,6 +6627,7 @@ div.wave-block:nth-child(17):after {
 @media (max-width: 1024px) and (min-width: 576px) {
   .popup-portfolio-text-wrap {
     width: 100%;
+    margin: 0px 15px;
   }
 }
 
@@ -9815,6 +9816,7 @@ strong {
   }
 }
 
+
 @media (max-width: 768px) {
   .popup-portfolio-text--active {
     display: contents;
@@ -9825,7 +9827,11 @@ strong {
     display: contents;
   }
 }
-
+@media (max-width: 576px) {
+  .popup-portfolio-text--active {
+    display: flex;
+  }
+}
 @media (max-width: 576px) {
   .slider-arrow-tablet-mobile_right {
     right: -20px;
@@ -9845,4 +9851,11 @@ strong {
     // display: flex;
     // /* justify-items: center; */
 }
+}
+
+.no-input--active {
+  border: 5px solid red;
+  border-radius: 10px;
+  margin: 5px 0px;
+  padding: 5px 0px;
 }

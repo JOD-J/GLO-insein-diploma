@@ -7,21 +7,21 @@ const formsSubmit = () => {
 		const elementsForm = [...form.elements].filter(item => item.tagName.toLowerCase() !== 'button' && item.type !== 'button');
 		elementsForm.forEach(item => {
 			if (item.name === 'phone') {
-				// здесь удаляем класси для отображения не валидности поля
 				if (/^\+?[78]\s([-()\s]*\d){10}$/.test(item.value)) {
+					item.classList.remove('no-input--active');
 					set.delete(item);
 				} else {
-					// добавляем класс не валидности поля
+					item.classList.add('no-input--active');
 					set.add(item);
 				}
 			}
 
 			if (item.name === 'name') {
 				if (/^[а-яА-Я\s]+$/gi.test(item.value)) {
-					item.style.background = 'transparent';
+					item.classList.remove('no-input--active');
 					set.delete(item);
 				} else {
-					item.style.background = 'red';
+					item.classList.add('no-input--active');
 					set.add(item);
 				}
 			}
@@ -29,9 +29,9 @@ const formsSubmit = () => {
 			if (item.getAttribute('type') === 'checkbox') {
 				if (item.checked) {
 					set.delete(item);
-					// здесь вставляем класси для отображения валидности оля
+					item.parentElement.classList.remove('no-input--active');
 				} else {
-					// здесь убираем класси для отображения валидности оля
+					item.parentElement.classList.add('no-input--active');
 					set.add(item);
 				}
 			}
@@ -65,7 +65,6 @@ const formsSubmit = () => {
 				if (response.status !== 200) {
 					throw new Error('Что то пошло не так');
 				}
-				// код открытия popup после отправки формы
 			})
 			.catch(error => {
 				console.log(error);
@@ -78,8 +77,8 @@ const formsSubmit = () => {
 		validateForm(target);
 		if (!validateForm(target).size) {
 			popupThank.classList.add('visible');
-			clearInput(target);
 			checkForms(target);
+			clearInput(target);
 		}
 	});
 };
