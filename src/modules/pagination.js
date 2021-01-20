@@ -3,17 +3,19 @@ const pagination = () => {
 	const navDesigns = document.querySelector('.nav-designs');
 	const designsSlider = document.querySelector('.designs-slider');
 	const previewBlock = document.querySelectorAll('.preview-block');
-	
+
 	const designsList = document.querySelector('#designs-list');
 	const designsSliderStyleNon = document.querySelectorAll('.designs-slider__style-non');
 
 	const designsSliderStyleSlide = document.querySelectorAll('.designs-slider__style-slide');
-	
-	
+
+
 	const popupDesign = document.querySelector('.popup-design');
 	const navListPopupDesigns = document.querySelector('#nav-list-popup-designs');
 	const popupDesignSlider = document.querySelector('.popup-design-slider');
 	const popupDesignText = document.querySelectorAll('.popup-design-text');
+	const popupDesignsSliderStyleNon = document.querySelectorAll('.popup-designs-slider__style-non');
+
 
 	const addActiveClassSlider = (arr, ind, activeClass) => {
 		[...arr.children].forEach((item, i) => {
@@ -36,7 +38,7 @@ const pagination = () => {
 	};
 	addActiveClassPreview(previewBlock, 0, 'visible');
 	addActiveClassPreview(popupDesignText, 0, 'visible-content-block');
-	
+
 
 
 	let countDesign = 0;
@@ -147,7 +149,7 @@ const pagination = () => {
 		if (target.closest('.preview-block__item')) {
 			// designsSliderStyleNon.forEach(item => {
 			// 	// console.log('item: ', item);
-				
+
 			// 	if (item.classList.contains('designs-slider__style-non--active')) {
 			// 	// console.log('item: ', item);
 
@@ -158,23 +160,111 @@ const pagination = () => {
 			// 		});
 			// 		// addActiveClassSlider(item, countst, 'designs-slider__style-slide--active');
 			// 	}
-
 			// });
 		}
-
-
+		if (target.closest('#design_left')) {
+			// counSlidePopupDesign--;
+			// prevPopupDesign(popupDesignsSliderStyleNon, counSlidePopupDesign);
+		}
+		if (target.closest('#design_right')) {
+			// counSlidePopupDesign++;
+			// nextPopupDesign(popupDesignsSliderStyleNon, counSlidePopupDesign);
+		}
 	});
 
+
+	let countPopupDesign = 0;
+	let counSlidePopupDesign = 0;
+
+	const prevPopupDesign = (elem, index) => {
+		elem.forEach(item => {
+			if (item.classList.contains('popup-designs-slider__style-non--active')) {
+				if (index >= 0) {
+					const go = () => {
+						countPopupDesign -= 5;
+						[...item.children].forEach(item => {
+							item.style.transform = `translateY(${-countPopupDesign}%)`;
+						});
+						const animate = requestAnimationFrame(go);
+						if (countPopupDesign === 0) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 100) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 200) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 300) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 400) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 500) {
+							cancelAnimationFrame(animate);
+						}
+					};
+					requestAnimationFrame(go);
+				} else {
+					counSlidePopupDesign--;
+				}
+			}
+		});
+	};
+
+	const nextPopupDesign = (elem, index) => {
+		console.log('index: ', index);
+		elem.forEach(item => {
+			if (item.classList.contains('popup-designs-slider__style-non--active')) {
+				if (index <= item.children.length - 1) {
+					const go = () => {
+						countPopupDesign += 5;
+						[...item.children].forEach(item => {
+							item.style.transform = `translateY(${-countPopupDesign}%)`;
+						});
+						const animate = requestAnimationFrame(go);
+						if (countPopupDesign === 100) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 200) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 300) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 400) {
+							cancelAnimationFrame(animate);
+						}
+						if (countPopupDesign === 500) {
+							cancelAnimationFrame(animate);
+						}
+					};
+					requestAnimationFrame(go);
+				} else {
+					counSlidePopupDesign--;
+				}
+			}
+		});
+
+	};
 	popupDesign.addEventListener('click', event => {
 		const target = event.target;
 		if (target.tagName === 'BUTTON') {
+			// counSlidePopupDesign = 0;
+			// console.log('counSlidePopupDesign: ', counSlidePopupDesign);
+			// popupDesignsSliderStyleNon.forEach(item => {
+			// 	[...item.children].forEach(item => {
+			// 		// console.log('item: ', item);
+			// 		item.style.transform = `translateY(0%)`;
+			// 	});
+			// });
 			[...navListPopupDesigns.children].forEach((item, i) => {
 				item.classList.remove('active');
 				if (item === target) {
 					item.classList.add('active');
 					addActiveClassSlider(popupDesignSlider, i, 'popup-designs-slider__style-non--active');
 					addActiveClassPreview(popupDesignText, i, 'visible-content-block');
-
 				}
 			});
 		}
@@ -185,6 +275,14 @@ const pagination = () => {
 		if (target.closest('#nav-arrow-popup-designs_right')) {
 			countSlideDesign++;
 			nextDesign(navListPopupDesigns, countSlideDesign);
+		}
+		if (target.closest('#popup_design_left')) {
+			counSlidePopupDesign--;
+			prevPopupDesign(popupDesignsSliderStyleNon, counSlidePopupDesign);
+		}
+		if (target.closest('#popup_design_right')) {
+			counSlidePopupDesign++;
+			nextPopupDesign(popupDesignsSliderStyleNon, counSlidePopupDesign);
 		}
 	});
 };
