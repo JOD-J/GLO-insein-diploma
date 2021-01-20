@@ -32,6 +32,8 @@ import sliderPortfolio  from './modules/sliderPortfolio';
 import formsSubmit  from './modules/formsSubmit';
 // 8-task blockWelcome
 import loadingDate  from './modules/loadingDate';
+// 8-task blockWelcome
+import pagination  from './modules/pagination';
 
 
 
@@ -67,4 +69,5 @@ sliderPortfolio();
 formsSubmit();
 // 8-task blockWelcome
 loadingDate();
-
+// 8-task blockWelcome
+pagination();
