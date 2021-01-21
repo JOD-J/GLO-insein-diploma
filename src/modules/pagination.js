@@ -51,8 +51,24 @@ const pagination = () => {
 			}
 		});
 	};
+
 	addActiveClassPreview(previewBlock, 0, 'visible');
 	addActiveClassPreview(popupDesignText, 0, 'visible-content-block');
+
+
+	const addActivePreview = (arr, ind, activeClass) => {
+		[...arr.children].forEach((item, i) => {
+			[...item.children].forEach((elem, index) => {
+				if (item.classList.contains('designs-slider__style-non--active')) {
+					elem.classList.add(activeClass);
+					if (index === ind) {
+						elem.classList.remove(activeClass);
+					}
+				}
+			});
+		});
+	};
+
 
 	const resetSliders = () => {
 		counSlidePopupDesign = 0;
@@ -61,6 +77,10 @@ const pagination = () => {
 		addActiveClassPreview(popupDesignText, 0, 'visible-content-block');
 		addActiveClassSlider(designsSlider, 0, 'designs-slider__style-non--active');
 		addActiveClassPreview(previewBlock, 0, 'visible');
+		addActiveClassPreview(designsSliderStyleSlide, 0, 'designs-slider__style-slide--active');
+		designsSliderStyleSlide.forEach(item => {
+			item.classList.remove('preview-block__item-inner--active');
+		});
 	};
 
 	const prevDesign = (elem, index) => {
@@ -179,7 +199,6 @@ const pagination = () => {
 		elem.forEach(item => {
 			if (item.classList.contains('popup-designs-slider__style-non--active') || item.classList.contains('designs-slider__style-non--active')) {
 				if (index <= item.children.length - 1) {
-					console.log('index: ', index);
 					sliderCounterContentCurrent[5].textContent =  counSlidePopupDesign + 1;
 					const go = () => {
 						countPopupDesign += 5;
@@ -213,7 +232,6 @@ const pagination = () => {
 
 
 
-
 	// designsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesignsdesig
 	designs.addEventListener('click', e => {
 		const target = e.target;
@@ -232,20 +250,18 @@ const pagination = () => {
 			});
 		}
 		if (target.closest('.preview-block__item')) {
-			// designsSliderStyleNon.forEach(item => {
-			// 	// console.log('item: ', item);
+			designsSliderStyleSlide.forEach(item => {
+				item.style.transform = `translateY(0%)`;
+			});
+			counSlidePopupDesign = 0;
+			countPopupDesign = 0;
 
-			// 	if (item.classList.contains('designs-slider__style-non--active')) {
-			// 	// console.log('item: ', item);
+			[...target.parentElement.parentElement.children].forEach((item, i) => {
+				if (item === target.parentElement) {
+					addActivePreview(designsSlider, i, 'preview-block__item-inner--active');
+				}
+			});
 
-			// 		let countst = 0;
-			// 		[...item.children].forEach((items, ind) => {
-			// 			// console.log('items: ', items);
-			// 			countst = ind;
-			// 		});
-			// 		// addActiveClassSlider(item, countst, 'designs-slider__style-slide--active');
-			// 	}
-			// });
 		}
 		if (target.closest('#nav-arrow-designs_left')) {
 			countSlideDesign--;
@@ -256,10 +272,18 @@ const pagination = () => {
 			nextDesign(designsList, countSlideDesign);
 		}
 		if (target.closest('#design_left')) {
+			designsSliderStyleSlide.forEach(item => {
+				item.classList.remove('preview-block__item-inner--active');
+			});
+
 			counSlidePopupDesign--;
 			prevPopupDesign(designsSliderStyleNon, counSlidePopupDesign);
 		}
 		if (target.closest('#design_right')) {
+			designsSliderStyleSlide.forEach(item => {
+				item.classList.remove('preview-block__item-inner--active');
+			});
+
 			counSlidePopupDesign++;
 			nextPopupDesign(designsSliderStyleNon, counSlidePopupDesign);
 		}

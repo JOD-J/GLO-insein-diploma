@@ -2,6 +2,14 @@
 const formsSubmit = () => {
 	const popupThank = document.querySelector('.popup-thank');
 
+	const inputNAmes = document.querySelectorAll('input[name="name"]');
+
+	inputNAmes.forEach(item => {
+		item.addEventListener('input', () => {
+			item.value = item.value.replace(/[a-zA-Z\d]/ig, '');
+		})
+	})
+
 	const validateForm = form => {
 		const set = new Set();
 		const elementsForm = [...form.elements].filter(item => item.tagName.toLowerCase() !== 'button' && item.type !== 'button');
@@ -17,7 +25,7 @@ const formsSubmit = () => {
 			}
 
 			if (item.name === 'name') {
-				if (/^[а-яА-Я\s]+$/gi.test(item.value)) {
+				if (/^[а-яА-Я\s]{2}$/gi.test(item.value)) {
 					item.classList.remove('no-input--active');
 					set.delete(item);
 				} else {

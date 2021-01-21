@@ -9968,6 +9968,21 @@ strong {
   display: block;
 }
 
+// .designs-slider__style-slide {
+//   display: none;
+
+// }
+// .designs-slider__style-slide--active {
+//   display: block;
+// }
+
+.preview-block__item--active {
+
+}
+.preview-block__item-inner--active{
+  display: none;
+  opacity: 0;
+}
 @media (max-width: 1024px) {
   .popup-design-slider {
     border-radius: 0;
