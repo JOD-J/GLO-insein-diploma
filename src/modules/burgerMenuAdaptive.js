@@ -23,8 +23,9 @@ const burgerMenuAdaptive = () => {
 
 
 	const scrollBurgerMenu = elem => {
+
 		const scrollHeight = document.getElementById(elem.href.split('#')[1]).offsetTop;
-		toggleMenu();
+		popupDialogMenu.classList.remove('open-menu');
 		window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
 	};
 
@@ -36,12 +37,12 @@ const burgerMenuAdaptive = () => {
 	document.addEventListener('click', event => {
 		const target = event.target;
 		if (target.matches('.menu__icon')) {
+			event.preventDefault();
 			popupMenuElem.classList.add('visible');
 			toggleMenu();
 		}
 		if (target.closest('.close')) {
 			closeAllPopup();
-			
 		}
 		if (target.closest('.close-menu')) {
 			closeAllPopup();
@@ -49,9 +50,11 @@ const burgerMenuAdaptive = () => {
 		}
 
 		if (target.closest('.popup-menu-nav__item')) {
+			event.preventDefault();
 			scrollBurgerMenu(target);
 		}
 		if (target.closest('.button-footer')) {
+			event.preventDefault();
 			scrollBurgerMenu(target);
 		}
 		if (target.closest('.link-list-menu')) {
@@ -62,9 +65,9 @@ const burgerMenuAdaptive = () => {
 			openPopupRepairTypes();
 		}
 		if (target.matches('.link-privacy')) {
-            const popupPrivacy = document.querySelector('.popup-privacy');
-            popupPrivacy.classList.add('visible');
-        }
+			const popupPrivacy = document.querySelector('.popup-privacy');
+			popupPrivacy.classList.add('visible');
+		}
 	});
 };
 

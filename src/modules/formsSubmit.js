@@ -6,7 +6,7 @@ const formsSubmit = () => {
 
 	inputNAmes.forEach(item => {
 		item.addEventListener('input', () => {
-			item.value = item.value.replace(/[a-zA-Z\d]/ig, '');
+			item.value = item.value.replace(/[a-zA-Z\d!"№;%:?]/ig, '');
 		});
 	});
 
